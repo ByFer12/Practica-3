@@ -9,6 +9,8 @@ public class Tablero {
         this.y = y;
         tablero = new Celda[x][y];
         inicializarTablero();
+        tablero[0][0].setFicha(new Ficha(true));
+   
     }
 
     private void inicializarTablero() {
