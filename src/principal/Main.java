@@ -1,13 +1,14 @@
 package src.principal;
 
 import src.tablero.Tablero;
+import src.personas.*;
 
 public class Main {
     public static void main(String[] args) {
-      Tablero t1= new Tablero(8,8);
-      t1.pintarTablero();
-      
 
+      VectorJugador v1= new VectorJugador();
+      Tablero t1= new Tablero(8,8,false);
+      t1.pintarTablero();
     }
     
 }

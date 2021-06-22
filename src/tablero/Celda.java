@@ -11,43 +11,57 @@ public class Celda {
     public void setFicha(Ficha f){
         this.ficha=f;
     }
+    public Ficha getFicha(){
+        Ficha tmp=this.ficha;
+        this.ficha=null;
+        return tmp;
+    }
+
+    public boolean ocupadoPorFicha(){
+        return (ficha!=null);
+
+    }
 
     public Celda(boolean esColor) {
         this.esColor = esColor;
         this.ficha = null;
 
     }
+    public boolean esColor(){
+        return this.esColor;
+    }
 
     public String pintarCelda(int linea) {
         String res = "";
         if (esColor) {
-            if (ficha != null) {
-                if ((linea == 0) || (linea == 2))
-                    res = "" + ANSI_BLACK + celda + celda + ficha.getFichas() + ficha.getFichas()+ ANSI_BLACK + celda+celda+celda;
-                if (linea == 1)
-                    res = "" + ANSI_BLACK + celda + ficha.getFichas() + ficha.getFichas()+ficha.getFichas()+ficha.getFichas() + ANSI_BLACK + celda+celda;
-
-            } else {
-                res = "" + ANSI_BLACK + celdaColor + celdaColor + celdaColor + celdaColor + celdaColor + celdaColor + celdaColor;
-
-            }
+           res =imprimir(ANSI_BLACK, linea);
 
         } else {
-            if (ficha != null) {
-                if ((linea == 0) || (linea == 2))
-                    res = "" + ANSI_RED + celdaColor+ celdaColor + ficha.getFichas() + ficha.getFichas()+ficha.getFichas() + ANSI_BLACK + celdaColor
-                            + celdaColor;
-                if (linea == 1)
-                    res = "" + ANSI_RED + celdaColor + ficha.getFichas() + ficha.getFichas()+ficha.getFichas() + ANSI_BLACK + celdaColor+celdaColor+celdaColor;
-
-            } else {
-                res = "" + ANSI_RED + celdaColor + celdaColor + celdaColor + celdaColor + celdaColor + celdaColor + celdaColor;
-
-            }
+         res=imprimir(ANSI_RED, linea);
 
         }
 
         return res;
 
+    }
+
+
+    private String imprimir(String color, int linea){
+        String res="";
+        if (ficha != null) {
+            if ((linea == 0) || (linea == 2))
+                res = "" + color+ celdaColor+ celdaColor + ficha.getFichas() + ficha.getFichas()+ color + celdaColor+celdaColor
+                        + celdaColor;
+            if (linea == 1)
+                res = "" + color + celdaColor + ficha.getFichas() + ficha.getId() +ficha.getFichas()+ color + celdaColor+celdaColor;
+
+        } else {
+            res = "" + color+ celdaColor + celdaColor + celdaColor + celdaColor + celdaColor + celdaColor + celdaColor;
+
+        }
+
+
+        return res;
+    
     }
 }

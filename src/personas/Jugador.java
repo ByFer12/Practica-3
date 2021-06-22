@@ -3,17 +3,13 @@ package src.personas;
 public class Jugador {
     private String nombre;
     private int punteo;
+    private int ganados;
+    private int perdidos;
     
 
-    public Jugador(String nombre, int punteo) {
+    public Jugador(String nombre) {
         this.nombre = nombre;
-        this.punteo = punteo;
     }
-
-
-    
-
-
     public String getNombre() {
         return this.nombre;
     }
@@ -29,4 +25,22 @@ public class Jugador {
     public void setPunteo(int punteo) {
         this.punteo = punteo;
     }
+
+    public int getGanados() {
+        return this.ganados;
+    }
+
+    public void setGanados(int ganados) {
+        this.ganados = ganados;
+    }
+
+    public int getPerdidos() {
+        return this.perdidos;
+    }
+
+    public void setPerdidos(int perdidos) {
+        this.perdidos = perdidos;
+    }
 }
+
+    
